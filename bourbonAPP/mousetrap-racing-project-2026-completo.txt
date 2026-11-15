@@ -1,0 +1,315 @@
+Mousetrap Racing Project 2026 - Caderno de Projetos Interdisciplinares
+
+
+1. Introdução e Contextualização Pedagógica
+
+O Mousetrap Racing Project representa um marco na aplicação prática de metodologias ativas, especificamente a Aprendizagem Baseada em Projetos (ABP). Tradicionalmente voltado ao desenvolvimento de veículos de propulsão exclusivamente mecânica, utilizando como motor uma ratoeira convencional (90 x 165 mm, tolerância de 10%), o projeto exige que equipes de engenharia desenhem soluções em CAD e fabriquem protótipos funcionais capazes de percorrer uma distância mínima de 10 metros, utilizando pelo menos 50% de materiais sustentáveis por massa. A grande final ocorre no Bourbon Shopping, aproximando a academia da comunidade de forma prática e empolgante.
+
+Com a inserção das turmas de Análise e Desenvolvimento de Sistemas (ADS) e Ciência da Computação, através da Unidade Curricular de Exploração Digital e Fundamentos Tecnológicos, este ecossistema se expande. A fusão da engenharia física com a engenharia de software, IoT, inteligência artificial e ciência de dados permite que os estudantes criem soluções digitais aplicadas ao evento. Este Caderno de Projetos detalha 25 propostas de projetos interdisciplinares, estruturadas didaticamente para guiar o aprendizado prático, a ética, a cidadania digital, a segurança da informação e a sustentabilidade (ODS 9 da ONU).
+
+
+PROJETO 1: Bourbon Racing Companion App (Vitrine Digital e Votação Popular)
+
+Objetivo:
+Desenvolver um aplicativo web móvel responsivo para conectar o público frequentador do Bourbon Shopping com as equipes e seus respectivos projetos de engenharia.
+
+Desenvolvimento:
+Os alunos de ADS/CC construirão uma aplicação web frontend (utilizando frameworks como React ou Vue) ligada a uma API backend (Node.js ou Python/FastAPI) e um banco de dados NoSQL (como MongoDB). A aplicação exibirá os perfis das equipes, seus vídeos de Elevator Pitch e renders do CAD. Cada estande de equipe terá um QR Code impresso; ao ser escaneado, o app exibirá a página específica da equipe e disponibilizará um sistema de votação popular seguro na categoria de 'Melhor Design' ou 'Carrinho Mais Inovador'.
+
+Justificativa:
+Este projeto promove a transformação digital de um evento acadêmico físico, aplicando conceitos de mobilidade e facilidade de acesso. Sob o aspecto ético e de segurança da informação estudados na UC, os alunos precisarão implementar travas de segurança (como limitação por endereço IP, cookies ou autenticação rápida por e-mail/rede social) para assegurar a idoneidade e impedir fraudes e votos duplicados na votação popular, estimulando a governança de dados públicos.
+
+
+PROJETO 2: Bourbon Spectator Counter via Visão Computacional
+
+Objetivo:
+Criar um sistema automatizado para contagem dinâmica de espectadores ao redor da pista de corrida no shopping, mensurando o impacto e a audiência do evento em tempo real.
+
+Desenvolvimento:
+A solução será desenvolvida em Python, empregando técnicas de visão computacional com a biblioteca OpenCV e modelos de detecção de objetos pré-treinados (como YOLO ou Haar Cascades). O software capturará o fluxo de vídeo de câmeras estrategicamente posicionadas na área da pista, detectando a presença de pessoas e atualizando um contador de espectadores simultâneos. Os dados de contagem serão transmitidos via protocolo HTTP/JSON para um servidor que registrará os picos de audiência ao longo do dia.
+
+Justificativa:
+O projeto aplica conceitos práticos de Inteligência Artificial e automação inteligente de processos. Adicionalmente, aborda um debate crucial sobre a ética e cidadania digital: a conformidade com a LGPD (Lei Geral de Proteção de Dados), alunos de Ciência da Computação deverão garantir que a imagem dos rostos dos frequentadores do shopping seja processada estritamente em tempo real em nível de hardware local, descartando frames de vídeo imediatamente e armazenando no banco de dados apenas os metadados numéricos agregados (contagem pura), respeitando o direito à privacidade e ao anonimato dos transeuntes.
+
+
+PROJETO 3: Chatbot Guia do Torneio (Atendimento Automatizado via WhatsApp ou Web)
+
+Objetivo:
+Projetar e implementar um assistente conversacional inteligente para fornecer suporte em tempo real aos visitantes do Bourbon Shopping sobre as regras da competição, cronograma de corridas e localização dos estandes.
+
+Desenvolvimento:
+Os estudantes criarão um agente de atendimento automático utilizando linguagens web ou Python com bibliotecas de NLP (Processamento de Linguagem Natural), integrando-o a APIs de canais de comunicação instantânea (como WhatsApp Business API ou chat direto em widget Web). O robô consumirá uma base de conhecimento estruturada contendo o edital oficial do projeto (cronogramas de corridas, critérios de pontuação, professores organizadores, e-mails de contato e história da competição).
+
+Justificativa:
+Demonstra o uso de inteligência artificial para otimização de serviços digitais e comunicação institucional em eventos públicos de grande circulação. Os estudantes são desafiados a projetar fluxos de interação humanizados, acessíveis e eficientes, garantindo a democratização do acesso à informação acadêmica para o público de variados perfis de letramento digital.
+
+
+PROJETO 4: Trivia Gamificada do Bourbon (Educação Científica)
+
+Objetivo:
+Estimular o engajamento de crianças, jovens e famílias frequentadoras do shopping no evento através de um jogo interativo focado nos princípios científicos aplicados nos carrinhos.
+
+Desenvolvimento:
+O projeto consiste em um jogo de perguntas e respostas (Quiz) do tipo Web App responsivo. Os usuários acessarão a aplicação lendo QR Codes distribuídos pelo shopping. O software apresentará quizzes curtos e dinâmicos com perguntas sobre a física mecânica por trás do projeto (energia potencial elástica da mola da ratoeira, atrito cinético e estático das rodas, aceleração, etc.) e sobre práticas de sustentabilidade (ODS 9). O sistema contará com animações visuais e gerará uma classificação instantânea de pontuação para os participantes da tarde.
+
+Justificativa:
+A gamificação é uma forte tendência de exploração tecnológica educacional. Este projeto estimula a difusão científica, integrando os conceitos de Física das UCs de engenharia com a lógica de programação, interfaces web amigáveis e usabilidade aplicadas no desenvolvimento de jogos na área de Computação.
+
+
+PROJETO 5: Bourbon AR Tour (Modelos CAD em Realidade Aumentada nos Estandes)
+
+Objetivo:
+Permitir que o público e os avaliadores visualizem os desenhos internos detalhados em CAD dos carrinhos através de Realidade Aumentada (RA) diretamente em seus celulares.
+
+Desenvolvimento:
+Os alunos de Computação criarão um portal web que suporta visualização 3D utilizando bibliotecas WebGL (como Three.js) combinadas com frameworks de RA (como AR.js ou 8th Wall). O sistema receberá os arquivos de modelagem tridimensional que as equipes de engenharia geraram para o edital. Ao apontar o celular para um marcador impresso no box da equipe no shopping, o espectador verá um holograma 3D interativo do carrinho flutuando sobre a mesa, podendo rotacionar e inspecionar a estrutura interna.
+
+Justificativa:
+Este projeto conecta diretamente a UC de Representação Gráfica (CAD) com as UCs de tecnologia de ponta (Computação Móvel e Realidade Aumentada). Oferece uma solução que evita o manuseio físico excessivo dos protótipos reais dos alunos de engenharia, os quais são delicados e ajustados especificamente para a corrida, promovendo a transformação digital da avaliação acadêmica.
+
+
+PROJETO 6: Interactive Event Map (Mapa Interativo 2D/3D do Evento)
+
+Objetivo:
+Criar um mapa digital interativo que ajude o público, competidores e docentes a navegar pelo espaço do torneio no Bourbon Shopping.
+
+Desenvolvimento:
+Utilizando SVG interativo ou frameworks gráficos 3D baseados em web, a equipe desenvolverá uma planta baixa estilizada da praça do shopping ou do espaço alocado para o evento. O mapa exibirá em tempo real quais equipes estão nas pistas de testes, o posicionamento exato das 'boxes' das equipes e o cronograma de atividades associado a cada localidade geográfica do evento.
+
+Justificativa:
+O mapa interativo substitui folhetos físicos de orientação por telas inteligentes, contribuindo para a sustentabilidade ecológica do evento. Promove habilidades em engenharia de software voltadas para geoespacialização básica e interfaces de usuário amigáveis.
+
+
+PROJETO 7: Smart Check-In & Credenciamento com QR Code Criptográfico
+
+Objetivo:
+Automatizar a recepção, identificação e credenciamento dos competidores e de seus respectivos veículos nos dias de validação física e na final do torneio.
+
+Desenvolvimento:
+O sistema consistirá em uma plataforma de retaguarda (banco de dados PostgreSQL + backend Django/Python) que gera, na inscrição do grupo (3 a 5 integrantes), um código QR criptografado exclusivo para cada participante e para o respectivo chassi de carrinho. No dia da entrega digital/física, os professores e fiscais utilizarão um aplicativo móvel leitor que decodifica as informações criptografadas e registra a presença e conformidade técnica no banco de dados centralizado instantaneamente.
+
+Justificativa:
+O projeto reduz custos organizacionais, diminui filas de credenciamento e substitui planilhas de papel por transações em tempo real. Sob a ótica da UC de Exploração Digital, o projeto aplica criptografia assimétrica de chaves para evitar fraudes, demonstrando como a segurança da informação é vital no controle de acesso de grandes eventos em espaços públicos.
+
+
+PROJETO 8: Kanban Digital & Tracker de Acompanhamento (Marcos 60% e 90%)
+
+Objetivo:
+Desenvolver um sistema web personalizado de monitoramento e gestão ágil do progresso do projeto das equipes de engenharia, cobrando as metas parciais obrigatórias de 60% e 90%.
+
+Desenvolvimento:
+Os alunos de Computação criarão um gerenciador de tarefas web (estilo Trello/Jira simplificado) onde os grupos de engenharia cadastrarão o progresso de cada etapa: corte do chassi, fixação da ratoeira de 90 x 165 mm, modelagem CAD tamanho A3 e gravação do Elevator Pitch. O sistema compilará dados agregados de avanço para os docentes, permitindo o upload direto das entregas digitais parciais diretamente no portal.
+
+Justificativa:
+Ensina aos estudantes de ADS o desenvolvimento de softwares baseados em metodologias ágeis de gestão de projetos (Scrum/Kanban), conecta de forma prática os requisitos formais de entrega da disciplina de engenharia ao prover um fluxo estruturado e automatizado de submissão de relatórios.
+
+
+PROJETO 9: CAD Verifier (Auditor de Metadados de Autoria de Projetos)
+
+Objetivo:
+Criar uma ferramenta de auditoria automática capaz de analisar arquivos de desenho técnico CAD (.dwg / .dxf) submetidos pelas equipes para atestar a autoria e evitar fraudes acadêmicas.
+
+Desenvolvimento:
+A equipe de programação desenvolverá um script em Python que utiliza bibliotecas de manipulação de dados de engenharia CAD (como ezdxf) para ler e analisar os metadados armazenados na estrutura binária do arquivo técnico submetido. O sistema inspecionará o tempo acumulado de edição, o histórico de salvamentos, os nomes dos computadores e usuários que editaram o arquivo, cruzando esses dados com o nome e e-mail dos integrantes cadastrados no grupo.
+
+Justificativa:
+O edital oficial penaliza de forma severa plágios e cópias de desenhos técnicos. Este projeto aborda diretamente a ética profissional e a governança de conformidade digital. Os alunos de computação aprendem sobre engenharia forense de arquivos e segurança de integridade acadêmica através da análise automatizada de dados reais.
+
+
+PROJETO 10: Plataforma Multidisciplinar de Matchmaking de Equipes
+
+Objetivo:
+Conectar estudantes isolados que precisam de grupos no tamanho obrigatório do regulamento (3 a 5 integrantes), organizando perfis por habilidades complementares.
+
+Desenvolvimento:
+O software será uma plataforma web onde os alunos se cadastram informando curso (Engenharia, ADS, Ciência da Computação), campus de estudo, e-mail institucional, horários livres na semana e nível de afinidade em áreas (Física Mecânica, CAD, Modelagem de Software). Um algoritmo de emparelhamento (matchmaking) agrupará automaticamente as pessoas órfãs de equipe com base na compatibilidade de horários e na multidisciplinaridade requerida.
+
+Justificativa:
+Atua diretamente na conformidade do edital referente à formação estrita de equipes, evitando que alunos fiquem sem grupo ou que se formem equipes com perfis técnicos idênticos, favorecendo o trabalho colaborativo multidisciplinar e simulando o ambiente corporativo moderno.
+
+
+PROJETO 11: LGPD Compliance Checker (Painel de Auditoria de Dados do Torneio)
+
+Objetivo:
+Auditar todas as tecnologias digitais implantadas no torneio no shopping para garantir que a coleta e processamento de informações estejam em conformidade legal com a Lei Geral de Proteção de Dados.
+
+Desenvolvimento:
+Os alunos criarão um checklist interativo e painel analítico alimentado por relatórios de conformidade que devem ser preenchidos pelos demais desenvolvedores de software do campeonato. A ferramenta inspecionará os termos de uso de aplicativos como o Bourbon Companion App e os sistemas de contagem de público, emitindo alertas visuais em caso de vulnerabilidades de privacidade (como logs com e-mails expostos ou rastreamento de imagens).
+
+Justificativa:
+A ética e privacidade no uso de Big Data e dados de usuários é um debate fundamental. Esta proposta coloca os alunos no papel de consultores de governança corporativa de dados de TI, aplicando as leis de cibersegurança e compliance ao cenário prático do evento.
+
+
+PROJETO 12: Acordo de Autoria & Blockchain Ledger para Projetos
+
+Objetivo:
+Garantir a imutabilidade, originalidade e autenticidade temporal das entregas acadêmicas (arquivos de CAD, código-fonte e relatórios técnicos) das equipes.
+
+Desenvolvimento:
+Utilizando tecnologias de registro distribuído (como Ethereum de teste local ou algoritmos criptográficos robustos de carimbo de tempo baseados em cadeias de hashes SHA-256), a equipe criará um portal de validação. O grupo de estudantes submete o hash do seu arquivo final de CAD e o sistema cria um registro público imutável datado, provando que a equipe finalizou aquele design técnico antes de qualquer outra.
+
+Justificativa:
+Aborda de forma avançada a segurança da informação e a criptografia. Os estudantes aprendem a criar arquiteturas de validação de propriedade intelectual digital de forma a proteger os designs originais de engenharia das equipes contra vazamentos e plágios.
+
+
+PROJETO 13: Telemetry & Live Leaderboard Dashboard (Painel no Telão do Shopping)
+
+Objetivo:
+Processar os tempos e distâncias alcançados pelos carrinhos nas pistas e renderizar um painel de classificação em tempo real em telões de alta definição no Bourbon Shopping.
+
+Desenvolvimento:
+A plataforma de cronometragem lançará os resultados em metros (com foco na meta mínima de 10 metros) e tempo por meio de uma API RESTful. Os alunos de ADS/CC construirão um dashboard dinâmico utilizando WebSockets para conexões síncronas rápidas de baixa latência e animações em tempo real. O painel destacará recordes do dia, equipes qualificadas para a final e velocidade média estimada de cada carrinho.
+
+Justificativa:
+Traz o dinamismo de eventos esportivos modernos para a competição acadêmica no shopping, melhorando sensivelmente a experiência do espectador. Fornece aos alunos de Computação experiência prática em arquiteturas de sistemas distribuídos voltadas para fluxo intenso de dados ao vivo.
+
+
+PROJETO 14: IoT Race Gate Tracker (Sensores Fotoelétricos e ESP32 na Pista)
+
+Objetivo:
+Desenvolver um sistema eletrônico preciso de barreiras ópticas nas pistas físicas do Bourbon Shopping para realizar a cronometragem automatizada dos carrinhos sem intervenção humana.
+
+Desenvolvimento:
+A equipe de alunos utilizará microcontroladores ESP32 ou placas Arduino conectados a sensores fotoelétricos de infravermelho colocados nos marcos de largada e chegada da pista de testes. Um algoritmo em C/C++ embarcado medirá a passagem física dos eixos do carrinho ratoeira pelas luzes de interrupção, calculando a cronometragem exata com resolução de milissegundos. Esses dados de tempo serão transmitidos sem fio (Wi-Fi local) à API do campeonato de software.
+
+Justificativa:
+Une hardware e software em uma arquitetura típica de Internet das Coisas (IoT) e automação de processos físicos, tema relevante em Redes de Computadores e Sistemas Digitais. Substitui o erro de cronometragem por cronômetros manuais de celular, elevando o nível técnico e a precisão do torneio de engenharia.
+
+
+PROJETO 15: Simulador Físico-Algorítmico do Carrinho Ratoeira (Python Desktop/Web)
+
+Objetivo:
+Construir uma ferramenta científica de simulação mecânica para prever se as escolhas de design técnico feitas pelas equipes em CAD conseguirão atingir a meta física de correr 10 metros.
+
+Desenvolvimento:
+A aplicação será desenvolvida em Python (utilizando bibliotecas numéricas como NumPy e interfaces como Tkinter ou Streamlit). O usuário insere parâmetros como a massa total do carrinho, raio das rodas, coeficiente de atrito estático e cinético do pneu na superfície de teste, braço da alavanca e a constante de mola estimada da ratoeira padrão de 90 x 165 mm. O algoritmo simula a liberação da energia potencial elástica, plotando gráficos de força, velocidade e aceleração temporal em um plano bidimensional.
+
+Justificativa:
+Estabelece um canal direto de interdisciplinaridade com a Unidade Curricular de Física Mecânica. Os alunos de Ciência da Computação lidam com a tradução de equações dinâmicas da física em modelos numéricos programados, fornecendo às equipes uma calculadora de prototipagem virtual de alta precisão científica.
+
+
+PROJETO 16: Video Velocity Tracker via Visão Computacional
+
+Objetivo:
+Analisar as tentativas de corrida das equipes de engenharia por meio do processamento dos vídeos das provas, estimando matematicamente as curvas de velocidade e deslocamento espacial.
+
+Desenvolvimento:
+Os alunos projetarão um pipeline em Python com OpenCV e inteligência artificial para rastrear o movimento de uma tag colorida ou de um padrão pré-definido fixado na lateral de cada carrinho ratoeira. O software processará o vídeo da câmera estática de gravação da pista, correlacionando o movimento do carrinho em pixels com o comprimento real em metros da pista de teste ao longo do tempo de prova.
+
+Justificativa:
+Substitui a medição manual de velocidade média por uma análise cinemática avançada completa gerada por software. Permite aos estudantes entenderem na prática técnicas de processamento digital de sinais de vídeo e cálculo diferencial numérico aplicados à dinâmica física.
+
+
+PROJETO 17: Wind Tunnel Simulator (Simulador Virtual de Aerodinâmica)
+
+Objetivo:
+Permitir o teste conceitual da resistência ao fluxo de ar dos chassis modelados em CAD pelas equipes de engenharia.
+
+Desenvolvimento:
+Os alunos de Computação implementarão uma solução simplificada de Dinâmica de Fluidos Computacional (CFD) em ambiente web ou desktop utilizando Python (com SciPy e matplotlib). O sistema importará silhuetas exportadas de arquivos CAD em 2D das laterais do carrinho, calculando numericamente o escoamento de ar sobre a geometria simulada sob ventos constantes.
+
+Justificativa:
+A aerodinâmica interfere na energia mecânica dissipada pelo carrinho ratoeira em percursos de longa distância. O simulador auxilia os estudantes a compreenderem o atrito aerodinâmico, integrando cálculo numérico de computação de alta performance aos conceitos estruturais da engenharia física.
+
+
+PROJETO 18: Smart Scale IoT Integration (Balança IoT para Homologação de Massa)
+
+Objetivo:
+Automatizar a pesagem física e checagem dos limites dimensionais dos carrinhos nos boxes dos juízes no Bourbon Shopping.
+
+Desenvolvimento:
+Os alunos construirão um protótipo físico composto por células de carga de pesagem precisão conectadas a uma placa controladora (HX711 acoplada a um Arduino/ESP32) associada a sensores ultrassônicos de distância posicionados nos eixos X, Y e Z. O sistema medirá o peso exato do carrinho ratoeira e suas dimensões espaciais de forma automatizada, rejeitando o chassi de forma digital na tela caso ele exceda os limites do edital (comprimento <60 cm, largura <30 cm, altura <30 cm).
+
+Justificativa:
+Substitui as réguas físicas e pesagens em balanças analíticas manuais demoradas que geram lentidão no evento. Demonstra o uso de IoT comercial focado em auditoria técnica e automação de linhas de validação física sob condições normativas estritas de regulamentos.
+
+
+PROJETO 19: Eco-Calculator & Green Label (Auditoria Ambiental de Chassis)
+
+Objetivo:
+Auditar e certificar digitalmente se os protótipos de carrinhos cumprem a meta ecológica de possuir no mínimo 50% de sua massa total composta de materiais sustentáveis ou reciclados.
+
+Desenvolvimento:
+Trata-se de um sistema web responsivo onde os grupos de engenharia declaram cada componente mecânico fabricado (eixos, rodas, parafusos, chassi, cola), indicando o peso de cada material, sua origem física (madeira descartada, PLA impresso em 3D, borracha de pneu reusada) e enviando foto de comprovação. O software executa o balanço de massa e gera, em caso de cumprimento da meta de 50%, um certificado digital com um QR Code ecológico exclusivo (Green Label) que será impresso e colado no carrinho.
+
+Justificativa:
+A sustentabilidade e o desenvolvimento de infraestruturas verdes (ODS 9 da ONU) são os pilares éticos do edital de engenharia. O projeto une a engenharia de requisitos de software ao cálculo do balanço de massa ecológico, oferecendo uma forma confiável de certificar e destacar as melhores criações sustentáveis do evento no Bourbon Shopping.
+
+
+PROJETO 20: Eco-Carbon Dashboard (Painel Geral de Pegada Ecológica)
+
+Objetivo:
+Calcular, exibir e projetar em painéis dinâmicos o total de emissões de carbono poupadas no evento graças ao uso de materiais reciclados e sustentáveis pelas dezenas de equipes concorrentes.
+
+Desenvolvimento:
+O dashboard coletará os pesos de materiais cadastrados pelas equipes e utilizará um modelo básico de estimativa ambiental parametrizado com bases públicas de dados de carbono poupado por material reciclado de reuso (versus a manufatura de novos plásticos ou metais). O painel gerará gráficos interativos consolidados do evento de como o torneio evitou emissões nocivas de gases de efeito estufa.
+
+Justificativa:
+Demonstra o potencial da ciência de dados a favor da conscientização ecológica ativa. Oferece ao público do Bourbon Shopping e à coordenação acadêmica um relatório claro da relevância ambiental prática e do impacto positivo que as soluções de engenharia geraram no ecossistema local.
+
+
+PROJETO 21: Circular Economy Marketplace (Plataforma de Doação e Troca de Peças)
+
+Objetivo:
+Criar uma plataforma de e-commerce circular focada na doação, troca ou venda de baixo custo de materiais sustentáveis de sobra, motores de ratoeiras usadas ou chassis antigos entre as turmas.
+
+Desenvolvimento:
+Será desenvolvido um portal web de economia compartilhada e e-commerce adaptado. Os alunos cadastram anúncios de sobras de materiais de engenharia (madeira reaproveitável, rolamentos de skates antigos para as rodas do carrinho, mola de ratoeira sobressalente). Os interessados entram em contato diretamente através da plataforma para realizar a permuta física nos campi.
+
+Justificativa:
+Estimula de forma prática o reuso consciente de recursos e insumos, aplicando os fundamentos de comércio eletrônico modernos discutidos na UC. Apoia os alunos que possuem dificuldades financeiras na aquisição de materiais físicos de engenharia, promovendo inclusão e colaboração acadêmica sustentável.
+
+
+PROJETO 22: Mousetrap Physics Simulator 3D (Simulador Baseado em Motor de Física)
+
+Objetivo:
+Criar um simulador tridimensional interativo baseado na web onde usuários do shopping podem modelar layouts experimentais de carrinhos e simular as tentativas fisicamente.
+
+Desenvolvimento:
+Os alunos de Computação projetarão um jogo de simulação utilizando bibliotecas de desenvolvimento de motores tridimensionais web (como Three.js integrando o motor de física 3D Cannon.js). Os participantes arrastarão componentes como rodas grandes ou pequenas, mudarão a posição do eixo central, o comprimento da haste da mola da ratoeira e simularão os movimentos em pistas virtuais simulando o comportamento de dinâmica, gravidade e coeficiente de atrito de rolamento físico.
+
+Justificativa:
+O uso de motores de simulação de física 3D expõe os alunos de computação à modelagem de fenômenos dinâmicos complexos de aceleração e colisões. O projeto funciona como ferramenta educacional fantástica para o público do shopping compreender as dificuldades reais de engenharia envolvidas no equilíbrio estrutural do veículo.
+
+
+PROJETO 23: IA Generativa de Chassis Otimizados para Carrinhos
+
+Objetivo:
+Desenvolver um algoritmo genético inteligente que sugere layouts estruturais otimizados de chassis tridimensionais em termos de peso, distribuição e aerodinâmica.
+
+Desenvolvimento:
+A solução consistirá em um script baseado em algoritmos heurísticos ou redes generativas simples desenvolvidas em Python. O usuário insere a massa pretendida e as dimensões limite do regulamento (comprimento <60 cm, largura <30 cm, altura <30 cm). O sistema roda simulações de resistência mecânica estrutural e evolução geracional, gerando sugestões de geometrias furadas ou aliviadas que possam ser impressas em 3D ou cortadas a laser com o menor peso possível.
+
+Justificativa:
+Aplica conceitos avançados de Inteligência Artificial para design de produtos. Demonstra a convergência entre desenvolvimento algorítmico computacional avançado e o auxílio no projeto mecânico clássico em CAD, ensinando os alunos a criarem ferramentas inteligentes de recomendação técnica corporativa.
+
+
+PROJETO 24: Team Portal & Vlog Manager (Gerenciador de Entregas de Vídeos)
+
+Objetivo:
+Criar uma plataforma centralizada para hospedar, organizar e reproduzir os vídeos de Elevator Pitch (marcos de 60% e 90%) e o Vídeo Final em Full HD das equipes.
+
+Desenvolvimento:
+A aplicação web de gerenciamento multimídia contará com um player customizado e sistema de streaming de vídeo local em nuvem (utilizando tecnologias como AWS S3 ou integração direta com players via embed dinâmico). O painel classificará os vídeos por equipes, cursos, campi de origem e notas, provendo um ambiente onde os jurados possam assistir aos uploads e atribuir notas e comentários integrados.
+
+Justificativa:
+O edital exige a produção intensiva de vídeos parciais e finais como entregas obrigatórias (Elevator Pitch em formato vertical 9x16 e Vídeo Final de 5 minutos). Este portal centraliza o armazenamento dessas pesadas mídias digitais de forma segura, organizando a avaliação docente e garantindo a facilidade de compartilhamento público dos vídeos aprovados.
+
+
+PROJETO 25: Digital Twin (Gêmeo Digital) da Pista de Competição do Shopping
+
+Objetivo:
+Criar uma réplica virtual (Gêmeo Digital) em tempo real do circuito físico de testes do Bourbon Shopping para cruzamento síncrono de dados físicos reais com o modelo teórico de corrida.
+
+Desenvolvimento:
+Os alunos de ADS/CC integrarão os dados medidos pelos sensores ópticos de cronometragem física (IoT Race Gate Tracker) com uma simulação digital tridimensional simultânea. No momento em que o carrinho ratoeira físico inicia a corrida real na pista física, uma representação gráfica virtual do veículo corre em paralelo no display digital tridimensional sincronizado pelas velocidades e tempos calculados pelos sensores de passagem.
+
+Justificativa:
+Introduz o conceito de Gêmeos Digitais (Digital Twins), a tendência central da Indústria 4.0. Este projeto consolida e coroa a união integrada de todas as áreas curriculares: a modelagem e desenho estrutural CAD (representação do protótipo), a física cinemática da prova física, a coleta por sensores (IoT e Redes) e a renderização ágil e inteligência de software dos alunos de computação.
+
+
+3. Conclusão e Diretrizes de Avaliação
+
+A interdisciplinaridade manifestada neste portfólio de 25 propostas oferece aos alunos de Análise e Desenvolvimento de Sistemas e Ciência da Computação um laboratório vivo de engenharia e tecnologia. Ao integrar seus softwares com o Mousetrap Racing Project no Bourbon Shopping, os discentes transcendem a teoria de programação, confrontando desafios práticos reais de latência de redes, conformidade com a LGPD, experiência do usuário (UX) em espaços públicos, segurança cibernética de dados em votações, design ecológico sustentável e simulação física teórica.
+
+Os professores organizadores atuarão na mentoria contínua para garantir que as equipes atendam tanto aos requisitos técnicos de software quanto à excelente apresentação pública de suas soluções. Esses trabalhos integrados, ao serem submetidos e apresentados na Jornada Científica ou Expo Anima, representam não apenas a aplicação máxima da Aprendizagem Baseada em Projetos, mas também credenciam as equipes ao recebimento do bônus de 20% na nota final da A3, celebrando a fusão de saberes e a inovação tecnológica acadêmica.

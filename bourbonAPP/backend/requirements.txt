@@ -1,0 +1,14 @@
+# Stack cravada do Projeto 7 (wheels py3-none-any / compatíveis com Termux bionic).
+# Divergências do ambiente real (Termux nativo, Python 3.13, libc bionic):
+#   - psycopg é instalação pura (ctypes) sobre a libpq do Termux: sem extra [binary]
+#     (não existem wheels manylinux aarch64 para bionic).
+#   - cryptography não tem wheel pip compatível: vem do pacote nativo
+#     `python-cryptography` do Termux (48.0.1), herdado via --system-site-packages.
+Django==5.2.17
+djangorestframework==3.17.2
+psycopg==3.2.13
+PyJWT[crypto]==2.10.1
+segno==1.6.6
+reportlab==4.5.1
+gunicorn==23.0.0
+django-cors-headers==4.7.0

@@ -1,0 +1,64 @@
+Tem razão — o plano pulou a camada de arquitetura do app. Reposiciono a Fase 2 com a arquitetura completa:
+
+## Arquitetura do app (repo `mrp2026-checkin`)
+
+### Visão geral
+App **Android nativo, Java puro, sem Gradle** — o build é CLI puro (aapt2 + javac + dx + zipalign + apksigner). Uma Activity por tela, Camera2 + ZXing para scan, `HttpURLConnection` para a API. Serve somente o papel fiscal (credenciamento), não emite QR.
+
+### Estrutura de módulos (package `mrp.checkin`)
+```
+res/                            # layouts XML (aapt2), drawable, strings
+AndroidManifest.xml             # CAMERA+INTERNET, usesCleartextTraffic, portrait, minSdk 26
+src/mrp/checkin/
+  MainActivity.java             # login (sem token) / tela inicial financeira
+  ScanActivity.java             # scan full-screen contínuo + feedback (som/vibração)
+  CheckActivity.java            # checklist de conformidade (whitelist fixa, espelha CONFORMITY_ITEMS_WHITELIST)
+  SettingsActivity.java         # endpoint da API, tamanho do qrbox, modo torch
+  core/
+    TokenStore.java             # SharedPreferences MODE_PRIVATE: jwt, endpoint, nome do operador
+    AppState.java               # sessão ativa (idToken/session), timeout 12h
+  net/
+    ApiClient.java              # HttpURLConnection + org.json; timeouts; map de erros (400/401/429)
+    EndpointResolver.java       # normaliza URL base; health check ao abrir Settings
+  scan/
+    CameraEngine.java           # Camera2 wrapper: openCamera, AF contínuo, exposição, torch (CameraManager.setTorchMode)
+    DecodeThread.java           # loop de frames (ImageReader) -> PlanarYUVLuminanceSource -> BinaryBitmap -> QRCodeReader
+    ScanFeedback.java           # led do aparelho + vibração + beep em cada resultado
+  ui/
+    ResultSheet.java            # pós-verify: nome/time + ações [presença][conformidade][próximo]
+    TeamCard.java               # exibição compacta resultado verify
+libs/zxing-core.jar             # vendorizado (1 jar puro Java, dex-ável), fora de Maven
+scripts/
+  build.sh                      # pipeline idempotente: aapt2 link -> javac --release 8 -> d8/dx -> zip -> zipalign -> apksigner
+  sign.sh                       # assina com keystore externo ao repo (pass via env, nunca no git)
+docs/ARCHITECTURE.md            # esta seção + diagrama de estados + runbook do dia
+README.md
+.github/workflows/build.yml     # [opcional] APK em nuvem via AOSP Action
+```
+
+### Fluxo de estados do scan (1 QR → 4 desfechos)
+```
+QR decodificado (texto criptografado, sem PII)
+  → POST verify (envelope)            200 → ResultSheet mostra nome+time
+                                          → [presença] POST presence      200 dup=false → "ok verde"
+                                          →                        dup=true  → "já registrado" (amarelo)
+                                          → [conformidade] POST conformity 200 → "aprovado"
+       400 → "QR inválido/adulterado" (vermelho)
+       401 → jogar pro login (token expirado)
+       429 → aviso de throttle
+```
+- Decode notifica a UI a cada frame **sem travar** a preview; após resultado, congela leitura (debounce) até "próximo".
+- Contrato da API = o que `pwa/src/api/client.ts` e `types.ts` já usam (o app espelha, não reinventa campos).
+
+### Decisões técnicas (já validadas pelo time)
+- **Câmera**: nativa (nenhum secure-context exigido) → HTTP puro LAN ok; **morre a escada Caddy/CA**. Torch via `CameraManager.setTorchMode` = determinístico em box escuro.
+- **Rede**: `HttpURLConnection` (zero dependência além do JDK); cleartext via `usesCleartextTraffic="true"`; sem OkHttp (evita dex/reflection extras).
+- **Storage**: token em `SharedPreferences` MODE_PRIVATE + `android:allowBackup="false"`; nada de PII persistido (só UUID opaco transitório em memória).
+- **Segurança operacional**: revogação imediata = staff `is_active=False` no Admin (backend já re-valida por request); 1 usuário por aparelho (AuditLog rastreia); keystore fora do git.
+- **Ergonomia**: `FLAG_KEEP_SCREEN_ON`, portrait travado, `hardwareAccelerated`, dom grants de câmera, interface touch-first (UI de fiscal, 4 telas).
+- **Build**: `dx`/`d8` para dex; zipalign antes de assinar (v2/v3); `apksigner verify` ao final. Build leve (~600MB–1GB JVM única) → sem OOM se Postgres/Django estiverem parados.
+
+### Definição de pronto da Fase 4 (arquitetura validada)
+- APK assinado instalado no aparelho real; scan do `qr_membro_152.png` → verify+presence; presence idempotente; dup=true; QR adulterado → 400; box escuro com torch; 5 aparelhos contra o mesmo LAN; `.env` com `ALLOWED_HOSTS` e `LAN_INSECURE=1` validando o fluxo ponta-a-ponta.
+
+Com isso a Fase 2 engloba: scaffold + módulos acima + `build.sh`/`sign.sh` + `docs/ARCHITECTURE.md`. Confirmo os marcos (nome `mrp2026-checkin`, Actions opcional, keystore fora do repo)? Saio do plan mode e começo pela Fase 1 (env + gate no backend).

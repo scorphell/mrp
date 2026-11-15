@@ -1,0 +1,38 @@
+# Python / Django
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+backend/staticfiles/
+backend/media/
+backend/gunicorn.pid
+backend/gunicorn.log
+
+# Segredos — NUNCA commitar
+backend/secrets/
+*.pem
+*.key
+.env
+.env.*
+!.env.example
+
+# Node / PWA
+node_modules/
+dist/
+.pwa/
+*.tsbuildinfo
+.npm/
+
+# Ferramentas
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pre-commit-cache/
+.coverage
+htmlcov/
+
+# IDE / SO
+.vscode/
+.idea/
+.DS_Store
